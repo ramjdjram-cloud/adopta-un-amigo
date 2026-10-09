@@ -1,7 +1,6 @@
-import animales from "../data/animales";
 import AnimalCard from "../components/AnimalCard";
 
-function Home() {
+function Home({animales}) {
   return (
     <main className="mx-auto max-w-5xl px-4 py-8">
       <h1 className="text-3xl font-bold">Encuentra a tu nuevo mejor amigo</h1>

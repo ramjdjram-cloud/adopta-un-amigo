@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
-import animales from "../data/animales";
 
-function Detail() {
+
+function Detail({animales,adoptar}) {
   const { id } = useParams();
   const animal = animales.find((a) => a.id === Number(id));
 
@@ -31,6 +31,19 @@ function Detail() {
           <p className="mt-4 text-slate-700">{animal.descripcion}</p>
         </div>
       </div>
+
+      {animal.adoptado ? (
+        <span className="mt-6 inline-block rounded-full bg-emerald-100 px-4 py-2 font-semibold text-emerald-700">
+          ✅ Adoptado
+        </span>
+      ) : (
+        <button
+          onClick={() => adoptar(animal.id)}
+          className="mt-6 rounded-lg bg-emerald-600 px-6 py-2 font-semibold text-white hover:bg-emerald-700"
+        >
+          Adoptar
+        </button>
+      )}
     </main>
   );
 }

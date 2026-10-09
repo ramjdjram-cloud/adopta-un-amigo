@@ -6,6 +6,7 @@ const animales = [
     edad: 2,
     descripcion: "Cachorra juguetona que ama los abrazos.",
     imagen: "https://picsum.photos/seed/1/400/300",
+    adoptado: false, 
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const animales = [
     edad: 3,
     descripcion: "Tortuga terrestre de los galapagos.",
     imagen: "https://picsum.photos/seed/2/400/300",
+    adoptado: false, 
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const animales = [
     edad: 5,
     descripcion: "Minino domesticamente salvaje.",
     imagen: "https://picsum.photos/seed/3/400/300",
+    adoptado: false, 
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ const animales = [
     edad: 6,
     descripcion: "Iguana marina alegre.",
     imagen: "https://picsum.photos/seed/4/400/300",
+    adoptado: false, 
   },
   
 ];
