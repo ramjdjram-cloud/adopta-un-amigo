@@ -14,10 +14,15 @@ function App() {
     )
   }
 
+  function disponibles(){
+    const animalitos = animales.filter((item) => item.adoptado === false)
+    return animalitos.length;
+  }
+
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-emerald-50 text-slate-900">
-        <Navbar />
+        <Navbar disponibles={disponibles()}/>
         <Routes>
           <Route path="/" element={<Home animales={animales} />} />
           <Route path="/animal/:id" element={<Detail animales={animales} adoptar={adoptar} />} />
