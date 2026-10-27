@@ -3,10 +3,41 @@ import Navbar from './components/Navbar.jsx'
 import Home from './pages/Home.jsx'
 import Detail from './pages/Detail.jsx'
 import { useState } from 'react'
-import animalesIniciales from './data/animales.js'
+import { useEffect } from 'react'
+
 
 function App() {
-  const [animales, setAnimales] = useState(animalesIniciales);
+  const [animales, setAnimales] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const obtenerAnimales = async () => {
+      try{
+        const respuesta = await fetch('http://localhost:3000/api/animales');
+
+        if (!respuesta.ok) {
+          throw new Error('No se pudo obtener la información del servidor');
+        }
+
+        const datos = await respuesta.json();
+        setAnimales(datos);
+      }catch(err){
+        setError(err.message);
+      }finally{
+        setLoading(false);
+      }
+  }
+  obtenerAnimales();
+},[])
+
+if (loading) {
+    return <p>Cargando datos...</p>;
+  }
+
+  if (error) {
+    return <p>Ocurrió un error: {error}</p>;
+  }
 
   function adoptar(id) {
     setAnimales((prev) =>
