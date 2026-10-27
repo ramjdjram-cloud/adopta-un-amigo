@@ -1,9 +1,9 @@
 import {Link} from 'react-router-dom';
 
-function AnimalCard({ animal }) {
+function AnimalCard({ animal, className = "" }) {
   return (
-    <Link to={`/animal/${animal.id}`}className='block'>
-    <div className="overflow-hidden rounded-xl bg-white shadow-sm transition hover:shadow-md">
+    <Link to={`/animal/${animal.id}`} className="block">
+    <div className={`overflow-hidden rounded-xl bg-white shadow-sm transition hover:shadow-md ${className}`}>
       <img
         src={animal.imagen}
         alt={animal.nombre}
